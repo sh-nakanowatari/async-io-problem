@@ -1,6 +1,5 @@
 'use strict';
 
-// ニコニコ動画のウェブサイトの HTML を表示する
 const https = require('node:https');
 let data = '';
 
