@@ -1,11 +1,16 @@
 'use strict';
-const fs = require('fs');
-const fileName = './test.txt';
-for (let count = 0; count < 500; count++) {
-  fs.appendFile(fileName, 'あ', 'utf8', () => {});
-  fs.appendFile(fileName, 'い', 'utf8', () => {});
-  fs.appendFile(fileName, 'う', 'utf8', () => {});
-  fs.appendFile(fileName, 'え', 'utf8', () => {});
-  fs.appendFile(fileName, 'お', 'utf8', () => {});
-  fs.appendFile(fileName, '\n', 'utf8', () => {});
-}
+
+// ニコニコ動画のウェブサイトの HTML を表示する
+const https = require('node:https');
+let data = '';
+
+https.get('https://www.nicovideo.jp/ranking/genre/all?term=hour&rss=2.0&lang=ja-jp', (response) => {
+  response
+    .on('data', (chunk) => {
+      data += chunk;
+    })
+    .on('end', () => {
+    });
+});
+
+console.log(data);
