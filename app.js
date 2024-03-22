@@ -15,7 +15,9 @@ https.get('https://www.nicovideo.jp/ranking/genre/all?term=hour&rss=2.0&lang=ja-
       .on('data', (chunk) => {
         data += chunk;
       })
-      .on('end', () => {});
+      .on('end', () => {
+        
+      });
   }
 );
 
